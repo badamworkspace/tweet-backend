@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "7675d91e-2fa0-45ac-b168-fe0d055be1d8",
+		"name": "TweetApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9381726"
+	},
+	"item": [
+		{
+			"name": "Tweets",
+			"item": [
+				{
+					"name": "AllTweetsOfUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllTweets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/all/",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"all",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddTweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"Hi Friends\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja/add",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"Hi Frends\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja/update/a271a428-4d99-4899-8cdd-2a52486ec97d",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja",
+								"update",
+								"a271a428-4d99-4899-8cdd-2a52486ec97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja/delete/a271a428-4d99-4899-8cdd-2a52486ec97d",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja",
+								"delete",
+								"a271a428-4d99-4899-8cdd-2a52486ec97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeTweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja/like/a271a428-4d99-4899-8cdd-2a52486ec97d",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja",
+								"like",
+								"a271a428-4d99-4899-8cdd-2a52486ec97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ReplyTweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"Hi Friends\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/Bhanuteja/reply/a271a428-4d99-4899-8cdd-2a52486ec97d",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"Bhanuteja",
+								"reply",
+								"a271a428-4d99-4899-8cdd-2a52486ec97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Notifications",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tweet_app}}/api/v1.0/tweets/notification",
+							"host": [
+								"{{tweet_app}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"tweets",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Bhanuteja\",\r\n    \"password\":\"bhanu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tweet_app}}/api/v1.0/users/login",
+					"host": [
+						"{{tweet_app}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loginId\":\"Bhanuteja\",\r\n    \"firstName\":\"Bhanuteja\",\r\n    \"lastName\":\"Badam\",\r\n    \"email\":\"bhanuteja@gmail.com\",\r\n    \"password\":\"bhanu\",\r\n    \"contactNumber\":\"9951231906\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tweet_app}}/api/v1.0/users/register",
+					"host": [
+						"{{tweet_app}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Bhanuteja\",\r\n    \"password\":\"bhanu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tweet_app}}/api/v1.0/users/Bhanuteja/forgot",
+					"host": [
+						"{{tweet_app}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"users",
+						"Bhanuteja",
+						"forgot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tweet_app}}/api/v1.0/users/all",
+					"host": [
+						"{{tweet_app}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"users",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByUsername",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tweet_app}}/api/v1.0/users/search/bhanuteja",
+					"host": [
+						"{{tweet_app}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"users",
+						"search",
+						"bhanuteja"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
