@@ -19,7 +19,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1.0/tweets")
 @Slf4j
-@SecurityRequirement(name = "TweetApp")
+@SecurityRequirement(name = "bearerAuth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TweetController {
     @Autowired
     private TweetService tweetService;
@@ -37,13 +38,13 @@ public class TweetController {
     @GetMapping("/all")
     public ResponseEntity<List<Tweet>> allTweets() throws TweetNotFoundException {
         List<Tweet> result = tweetService.getAllTweets();
-        return new ResponseEntity<List<Tweet>>(result, HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PostMapping("/{username}/add")
     public ResponseEntity<Tweet> addTweet(@PathVariable("username") String username, @RequestBody Tweet tweet){
         Tweet result = tweetService.add(tweet, username);
-        return new ResponseEntity<Tweet>(result, HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @PutMapping("/{username}/update/{id}")
@@ -63,6 +64,12 @@ public class TweetController {
         Tweet result = tweetService.likes(username,id);
         return new ResponseEntity<Tweet>(result, HttpStatus.OK);
     }
+
+//    @PutMapping("/{username}/unlike/{id}")
+//    public ResponseEntity<Tweet> likeTweet(@PathVariable("username") String username,@PathVariable UUID id) throws TweetNotFoundException {
+//        Tweet result = tweetService.likes(username,id);
+//        return new ResponseEntity<Tweet>(result, HttpStatus.OK);
+//    }
 
     @PostMapping("/{username}/reply/{id}")
     public ResponseEntity<Tweet> replyTweet(@PathVariable("username") String username, @RequestBody Tweet.Reply tweetReply,@PathVariable UUID id) throws TweetNotFoundException {

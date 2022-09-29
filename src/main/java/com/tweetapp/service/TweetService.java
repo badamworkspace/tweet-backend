@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -26,8 +24,9 @@ public class TweetService {
         tweet.setUsername(username);
         tweet.setCreatedDateTime(LocalDateTime.now());
         tweet.setLikes(0);
+//        tweet.setReplyMessage(new ArrayList<>());
         log.info("Tweet with id:{} posted by {}",tweet.getTweetId(),username);
-        kafkaProducerService.sendMessage(tweet.getUsername());
+//        kafkaProducerService.sendMessage(tweet.getUsername());
         return tweetRepository.save(tweet);
     }
 
@@ -60,15 +59,15 @@ public class TweetService {
 
     public Tweet reply(Tweet.Reply tweetReply, UUID tweetId, String username) throws TweetNotFoundException {
         Optional<Tweet> tweet = tweetRepository.findById(tweetId);
-        if(tweet.isPresent()) {
-            tweetReply.setUsername(username);
-            tweetReply.setCreatedDate(LocalDateTime.now());
-            List<Tweet.Reply> updateReply = tweet.get().getReplyMessage();
-            updateReply.add(tweetReply);
-            tweet.get().setReplyMessage(updateReply);
-            log.info("Tweet with id:{} replied by {}", tweet.get().getTweetId(), username);
-            return tweetRepository.save(tweet.get());
-        }else throw new TweetNotFoundException("Tweet with id : "+tweetId+" not found");
+            if (tweet.isPresent()) {
+                tweetReply.setUsername(username);
+                tweetReply.setCreatedDate(LocalDateTime.now());
+                List<Tweet.Reply> updateReply = Optional.of(tweet.get().getReplyMessage()).orElseGet(Collections::emptyList);
+                updateReply.add(tweetReply);
+                tweet.get().setReplyMessage(updateReply);
+                log.info("Tweet with id:{} replied by {}", tweet.get().getTweetId(), username);
+                return tweetRepository.save(tweet.get());
+            } else throw new TweetNotFoundException("Tweet with id : " + tweetId + " not found");
     }
 
     public List<Tweet> getAllTweetsByUser(String username) throws TweetNotFoundException {

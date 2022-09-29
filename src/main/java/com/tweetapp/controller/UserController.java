@@ -14,13 +14,15 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1.0/users")
 @Slf4j
-@SecurityRequirement(name = "TweetApp")
+@SecurityRequirement(name = "bearerAuth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     @Autowired
@@ -67,7 +69,8 @@ public class UserController {
     private void authenticate(String username, String password) throws Exception {
         try {
             log.info("Authenticating user : {}",username);
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+            Authentication res = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+//            log.info(String.valueOf(res));
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e) {

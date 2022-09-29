@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 public class KafkaConsumerService{
 
 
-    @KafkaListener(topics = "notification" , groupId ="TweetApp" )
-    public void consume(String message)
-    {
-        log.info(String.format("New Tweet By -> %s", message));
-        TweetController.messages.add(String.format("New Tweet By -> %s", message));
-        //log.info(String.valueOf(TweetController.messages.size()));
-    }
+//    @KafkaListener(topics = "notification" , groupId ="TweetApp" )
+//    public void consume(String message)
+//    {
+//        log.info(String.format("New Tweet By -> %s", message));
+//        TweetController.messages.add(String.format("New Tweet By -> %s", message));
+//        //log.info(String.valueOf(TweetController.messages.size()));
+//    }
 }
