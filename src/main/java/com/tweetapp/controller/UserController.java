@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1.0/users")
 @Slf4j
 @SecurityRequirement(name = "bearerAuth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://tweet-front.azurewebsites.net/")
 public class UserController {
 
     @Autowired
