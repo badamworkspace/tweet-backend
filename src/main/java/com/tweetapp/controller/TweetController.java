@@ -20,7 +20,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1.0/tweets")
 @Slf4j
 @SecurityRequirement(name = "bearerAuth")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://tweet-front.azurewebsites.net/")
 public class TweetController {
     @Autowired
     private TweetService tweetService;
